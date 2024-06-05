@@ -3,8 +3,6 @@ import { SlackCommandMiddlewareArgs } from '@slack/bolt';
 /**
  * /rickroll slash command event handler
  *
- * POST /user-accounts/sessions {AccountSessionToCoreApi}
- *
  * @param {SlackCommandMiddlewareArgs} payload
  */
 export default async (payload: SlackCommandMiddlewareArgs) => {
