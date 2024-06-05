@@ -40,7 +40,7 @@ export class SlackTeamService {
   }
 
   /**
-   * Static method to get upsert a Slack installation
+   * Static method to upsert a Slack team installation
    *
    * @static
    * @param {SlackInstall} [install]
@@ -56,7 +56,7 @@ export class SlackTeamService {
   }
 
   /**
-   * Static method to get upsert a Slack installation
+   * Static method to get a SlackTeamService
    *
    * @static
    * @param {string} [teamId]
