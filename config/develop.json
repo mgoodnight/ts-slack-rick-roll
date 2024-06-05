@@ -1,0 +1,15 @@
+{
+  "dynamoDb": {
+    "tables": {
+      "installs": "RickRollSlackTeamInstallations"
+    }
+  },
+  "server": {
+    "port": 3000
+  },
+  "slack": {
+    "install": {
+      "scopes": ["commands", "chat:write"]
+    }
+  }
+}
