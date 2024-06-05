@@ -2,14 +2,6 @@ import { InstallationQuery } from '@slack/oauth';
 import config from 'config';
 import { GetCommandOutput } from '@aws-sdk/lib-dynamodb';
 
-jest.mock('../../../src/adapters/dynamodb', () => ({
-  __esModule: true,
-  default: {
-    get: jest.fn(),
-    put: jest.fn(),
-  },
-}));
-
 import DynamoDbAdapter from '../../../src/adapters/dynamodb';
 import { SlackTeamService } from '../../../src/services/slack/team';
 import { SlackInstall } from '../../../src/types/teams';
