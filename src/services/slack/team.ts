@@ -40,9 +40,7 @@ export class SlackTeamService {
     });
   }
 
-  static async getTeam(
-    teamId: string,
-  ): Promise<SlackTeamService | undefined> {
+  static async getTeam(teamId: string): Promise<SlackTeamService | undefined> {
     const teamInstall = await DynamoDbAdapter.get({
       TableName: config.get<ConfigDynamoDbTables>('dynamoDb.tables').installs,
       Key: { teamId },
