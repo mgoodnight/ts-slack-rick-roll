@@ -18,7 +18,7 @@ export default async (payload: SlackCommandMiddlewareArgs) => {
         },
       ],
     });
-  } catch (beepCmdErr) {
-    console.error(beepCmdErr);
+  } catch (rickRollErr) {
+    console.error(rickRollErr);
   }
 };
