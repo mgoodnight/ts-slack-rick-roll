@@ -1,5 +1,10 @@
 import { SlackCommandMiddlewareArgs } from '@slack/bolt';
 
+/**
+ * /rickroll slash command event handler
+ *
+ * @param {SlackCommandMiddlewareArgs} payload
+ */
 export default async (payload: SlackCommandMiddlewareArgs) => {
   try {
     await payload.ack();

@@ -6,6 +6,13 @@ import { ConfigDynamoDbTables } from '../../types/config';
 import { SlackInstall, SlackTeam } from '../../types/teams';
 
 export class SlackTeamService {
+  /**
+   * Static method to get Slack InstallationStore
+   *
+   * @static
+   * @returns {InstallationStore}
+   * @memberof SlackTeamService
+   */
   static getStore(): InstallationStore {
     return {
       storeInstallation: async (install: SlackInstall): Promise<void> => {
@@ -32,6 +39,14 @@ export class SlackTeamService {
     };
   }
 
+  /**
+   * Static method to get upsert a Slack installation
+   *
+   * @static
+   * @param {SlackInstall} [install]
+   * @returns {Promise<void>}
+   * @memberof SlackTeamService
+   */
   static async upsertTeam(install: SlackInstall): Promise<void> {
     const newteam = { teamId: install.team?.id as string, install };
     await DynamoDbAdapter.put({
@@ -40,6 +55,14 @@ export class SlackTeamService {
     });
   }
 
+  /**
+   * Static method to get upsert a Slack installation
+   *
+   * @static
+   * @param {string} [teamId]
+   * @returns {Promise<SlackTeamService|undefined>}
+   * @memberof SlackTeamService
+   */
   static async getTeam(teamId: string): Promise<SlackTeamService | undefined> {
     const teamInstall = await DynamoDbAdapter.get({
       TableName: config.get<ConfigDynamoDbTables>('dynamoDb.tables').installs,
@@ -51,6 +74,13 @@ export class SlackTeamService {
     }
   }
 
+  /**
+   * Slack install getter
+   *
+   * @readonly
+   * @type {SlackInstall}
+   * @memberof SlackTeamService
+   */
   get install(): SlackInstall {
     return this.team.install;
   }
